@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Download YouTube video thumbnails in various qualities for free. Get high-quality thumbnails for your videos using our YouTube Thumbnail Downloader.">
+  <meta name="keywords" content="YouTube Thumbnail Downloader, Download YouTube Thumbnails, YouTube Video Thumbnail, Thumbnail Downloader, High-Quality Thumbnails">
+  <title>YouTube Thumbnail Downloader</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background-color: #f5f5f5;
+    }
+    .container {
+      text-align: center;
+      padding: 30px;
+      background-color: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+    h1 {
+      font-size: 28px;
+      margin-bottom: 20px;
+    }
+    p {
+      font-size: 16px;
+      margin-bottom: 15px;
+    }
+    .input-box {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    .button {
+      display: block;
+      margin: 10px auto;
+      padding: 10px 20px;
+      background-color: #007BFF;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      text-align: center;
+      text-decoration: none;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    .button:hover {
+      background-color: #0056b3;
+    }
+    .thumbnail-options {
+      display: none;
+      margin-top: 20px;
+    }
+    .thumbnail-option {
+      margin-top: 20px;
+      text-align: center;
+    }
+    .thumbnail-option h2 {
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+    .thumbnail-option img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 5px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    }
+    .download-button {
+      display: block;
+      margin-top: 10px;
+      margin: 0 auto;
+      max-width: 200px;
+      padding: 10px 20px;
+      background-color: #007BFF;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      text-align: center;
+      text-decoration: none;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    .download-button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>YouTube Thumbnail Downloader</h1>
+    <p>Paste the link to a YouTube video below:</p>
+    <input type="text" class="input-box" id="videoLink" placeholder="https://www.youtube.com/watch?v=...">
+
+    <button class="button" onclick="showThumbnailOptions()">Get Thumbnails</button>
+    
+    <div class="thumbnail-options" id="thumbnailOptions">
+      <div class="thumbnail-option">
+        <h2>Max Resolution (1280x720)</h2>
+        <img id="thumbnailImageMaxRes" src="" alt="Thumbnail Max Resolution">
+        <a class="download-button" id="downloadButtonMaxRes" href="#" download>Download Thumbnail</a>
+      </div>
+      <div class="thumbnail-option">
+        <h2>Standard Definition (640x480)</h2>
+        <img id="thumbnailImageSD" src="" alt="Thumbnail Standard Definition">
+        <a class="download-button" id="downloadButtonSD" href="#" download>Download Thumbnail</a>
+      </div>
+      <div class="thumbnail-option">
+        <h2>High Quality (480x360)</h2>
+        <img id="thumbnailImageHQ" src="" alt="Thumbnail High Quality">
+        <a class="download-button" id="downloadButtonHQ" href="#" download>Download Thumbnail</a>
+      </div>
+      <div class="thumbnail-option">
+        <h2>Medium Quality (320x180)</h2>
+        <img id="thumbnailImageMQ" src="" alt="Thumbnail Medium Quality">
+        <a class="download-button" id="downloadButtonMQ" href="#" download>Download Thumbnail</a>
+      </div>
+      <div class="thumbnail-option">
+        <h2>Low Quality (120x90)</h2>
+        <img id="thumbnailImageLQ" src="" alt="Thumbnail Low Quality">
+        <a class="download-button" id="downloadButtonLQ" href="#" download>Download Thumbnail</a>
+      </div>
+    </div>
+    <p style="font-size: 14px; margin-top: 20px;">Download YouTube video thumbnails in various qualities for free. Get high-quality thumbnails for your videos using our YouTube Thumbnail Downloader.</p>
+  </div>
+
+  <script>
+    function showThumbnailOptions() {
+      const videoLink = document.getElementById('videoLink').value;
+      const videoId = videoLink.match(/v=([^&]+)/)[1];
+      const thumbnailOptions = document.getElementById('thumbnailOptions');
+      thumbnailOptions.style.display = 'block';
+
+      const thumbnailImageMaxRes = document.getElementById('thumbnailImageMaxRes');
+      const thumbnailImageSD = document.getElementById('thumbnailImageSD');
+      const thumbnailImageHQ = document.getElementById('thumbnailImageHQ');
+      const thumbnailImageMQ = document.getElementById('thumbnailImageMQ');
+      const thumbnailImageLQ = document.getElementById('thumbnailImageLQ');
+
+      const downloadButtonMaxRes = document.getElementById('downloadButtonMaxRes');
+      const downloadButtonSD = document.getElementById('downloadButtonSD');
+      const downloadButtonHQ = document.getElementById('downloadButtonHQ');
+      const downloadButtonMQ = document.getElementById('downloadButtonMQ');
+      const downloadButtonLQ = document.getElementById('downloadButtonLQ');
+
+
+
+
+      thumbnailImageMaxRes.src = `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`;
+downloadButtonMaxRes.href = `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`;
+downloadButtonMaxRes.setAttribute("download", "thumbnail-max-res.jpg");
+
+thumbnailImageSD.src = `https://img.youtube.com/vi/${videoId}/sddefault.jpg`;
+downloadButtonSD.href = `https://img.youtube.com/vi/${videoId}/sddefault.jpg`;
+downloadButtonSD.setAttribute("download", "thumbnail-sd.jpg");
+
+thumbnailImageHQ.src = `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`;
+downloadButtonHQ.href = `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`;
+downloadButtonHQ.setAttribute("download", "thumbnail-hq.jpg");
+
+thumbnailImageMQ.src = `https://img.youtube.com/vi/${videoId}/mqdefault.jpg`;
+downloadButtonMQ.href = `https://img.youtube.com/vi/${videoId}/mqdefault.jpg`;
+downloadButtonMQ.setAttribute("download", "thumbnail-mq.jpg");
+
+thumbnailImageLQ.src = `https://img.youtube.com/vi/${videoId}/default.jpg`;
+downloadButtonLQ.href = `https://img.youtube.com/vi/${videoId}/default.jpg`;
+downloadButtonLQ.setAttribute("download", "thumbnail-lq.jpg");
+      
+    }
+  </script>
+</body>
+</html>
